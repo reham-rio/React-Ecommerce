@@ -82,7 +82,7 @@ export function NavigationMenuDemo() {
   }
 
   return (
-    <NavigationMenu className="fixed max-w-full justify-between px-10 md:px-20 py-4">
+    <NavigationMenu className=" max-w-full justify-between px-10 md:px-20 py-4">
       <Image src={logo} alt="fresh-card-logo" />
       <NavigationMenuList>
         <NavigationMenuItem className="flex md:hidden">

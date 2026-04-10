@@ -64,8 +64,6 @@ export default function Cart() {
     updateMutate({ productId, count });
   }
 
-  if (delPending || updatePending) return <Loading></Loading>;
-
   const {
     mutate: clearMutate,
     data: clearData,
@@ -83,6 +81,8 @@ export default function Cart() {
   if (!data?.numOfCartItems) {
     return <h2>Cart is Empty</h2>;
   }
+
+  if (delPending || updatePending) return <Loading></Loading>;
 
   return (
     <>
@@ -159,7 +159,7 @@ export default function Cart() {
       </div>
       <div className="w-full my-5 flex justify-end">
         <Button onClick={handleClear}>Clear Cart</Button>
-        <Link href={"/checkout/${data?.cartId}"}>
+        <Link href={`/checkout/${data?.cartId}`}>
           <Button>Check Out</Button>
         </Link>
       </div>

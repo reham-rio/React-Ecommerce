@@ -1,25 +1,25 @@
 import { NextAuthOptions } from "next-auth";
-import Credentials from "next-auth/providers/credentials";
+import credentials from "next-auth/providers/credentials";
 import { jwtDecode } from "jwt-decode";
 export const nextAuthConfig: NextAuthOptions = {
   providers: [
-    Credentials({
+    credentials({
       name: "credentials login!!",
       credentials: {
         email: { label: "user email", placeholder: "email" },
         password: {},
       },
-      authorize: async () => {
+      authorize: async (credentials) => {
         const data = await fetch(`${process.env.API}auth/signin`, {
           method: "post",
-          body: JSON.stringify(Credentials),
+          body: JSON.stringify(credentials),
           headers: {
             "content-type": "application/json",
           },
         });
 
         if (!data.ok) {
-          throw new Error(data.statusText);
+          return null;
         }
         const payload = await data.json();
         const { email, name } = payload.user;

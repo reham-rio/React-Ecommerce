@@ -36,7 +36,7 @@ export default function RegisterForm() {
     setLoading(true);
     try {
       const isSuccessfulRegister = await signIn("credentials", {
-        redirect: true,
+        // redirect: true,
         callbackUrl: "/home",
         ...data,
       });

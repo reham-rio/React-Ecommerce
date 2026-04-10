@@ -1,10 +1,11 @@
 import CheckOut from "../CheckOut";
 
-export default async function page({params}:{params:Promise<{cartId:string}>}) {
-
-  const {cartId} = (await (params)).cartId
-  console.log('cartId', cartId);
-  
+export default async function page({
+  params,
+}: {
+  params: { cartId: string };
+}) {
+  const { cartId } = params;
 
   return (
     <div>

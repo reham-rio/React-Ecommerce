@@ -7,7 +7,8 @@ export default function CheckOut({ cartId }: { cartId: string }) {
   interface formData {
     details: string;
     city: string;
-    phone: number;
+    phone: string;
+    postalCode: string;
   }
 
   const { register, handleSubmit } = useForm<formData>();
@@ -20,7 +21,13 @@ export default function CheckOut({ cartId }: { cartId: string }) {
 
   return (
     <div>
-      <form className="w-1/2 mx-auto my-7">
+      <form
+  onSubmit={(e) => {
+    e.preventDefault();
+    handleSubmit(handleCheckOut)(e);
+  }}
+  className="w-1/2 mx-auto my-7"
+>
         <input
           {...register("details")}
           className="w-full my-2 border border-gray-500 p-3 rounded-2xl"
@@ -42,7 +49,7 @@ export default function CheckOut({ cartId }: { cartId: string }) {
           className="w-full my-2 border border-gray-500 p-3 rounded-2xl"
           placeholder="postalCode"
         />
-        <Button>Send</Button>
+        <Button type="submit">Send</Button>
       </form>
     </div>
   );
