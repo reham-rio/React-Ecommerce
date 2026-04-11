@@ -47,7 +47,7 @@ export default function RegisterForm() {
         });
 
         setTimeout(() => {
-          router.push("/home");
+          router.push("/");
         }, 300);
         reset();
       } else {

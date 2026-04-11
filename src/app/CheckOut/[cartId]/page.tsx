@@ -5,7 +5,7 @@ export default async function page({
 }: {
   params: { cartId: string };
 }) {
-  const { cartId } = params;
+  const { cartId } = await params;
 
   return (
     <div>

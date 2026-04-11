@@ -22,12 +22,9 @@ export default function CheckOut({ cartId }: { cartId: string }) {
   return (
     <div>
       <form
-  onSubmit={(e) => {
-    e.preventDefault();
-    handleSubmit(handleCheckOut)(e);
-  }}
-  className="w-1/2 mx-auto my-7"
->
+        onSubmit={handleSubmit(handleCheckOut)}
+        className="w-1/2 mx-auto my-7"
+      >
         <input
           {...register("details")}
           className="w-full my-2 border border-gray-500 p-3 rounded-2xl"

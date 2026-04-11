@@ -1,9 +1,9 @@
 import { NextAuthOptions } from "next-auth";
-import credentials from "next-auth/providers/credentials";
+import Credentials from "next-auth/providers/credentials";
 import { jwtDecode } from "jwt-decode";
 export const nextAuthConfig: NextAuthOptions = {
   providers: [
-    credentials({
+    Credentials({
       name: "credentials login!!",
       credentials: {
         email: { label: "user email", placeholder: "email" },
